@@ -11,20 +11,27 @@ best <- function(state, outcome) {
   if (!(outcome=="heart attack" | outcome=="heart failure" | outcome=="pneumonia"))   stop("invalid outcome")
   
   ## Return hospital name in that state with lowest 30-day death
-  state_subset<-subset(outcomes,outcomes$State==state,na.rm=TRUE)
-  state_subset<-subset(state_subset[,1:11])
-  state_subset[,10]<-NULL
-  state_subset[,9]<-NULL
-  state_subset[,8]<-NULL
-  state_subset[,6]<-NULL
-  state_subset[,5]<-NULL
-  state_subset[,4]<-NULL
-  state_subset[,3]<-NULL
-  state_subset[,1]<-NULL
+  outcomes2 <- outcomes[c(2,7,11,17,23)]
+  state_subset<-subset(outcomes2,outcomes2$State==state,na.rm=TRUE)
+
+  
+if (outcome=="heart attack"){
   sorted_outcome <- state_subset[order(as.numeric(state_subset[, 3]), as.character(state_subset[, 1])), ]
-  
-  return()
-  
+  #return(sorted_outcome)
+  return(sorted_outcome[1,1])
+}
+else
+if (outcome=="heart failure"){
+  sorted_outcome <- state_subset[order(as.numeric(state_subset[, 4]), as.character(state_subset[, 1])), ]
+  #return(sorted_outcome)
+  return(sorted_outcome[1,1])
+}
+else 
+if (outcome=="pneumonia"){
+  sorted_outcome <- state_subset[order(as.numeric(state_subset[, 5]), as.character(state_subset[, 1])), ]
+  #return(sorted_outcome)
+  return(sorted_outcome[1,1])
+}
   ## rate  
 } 
 
