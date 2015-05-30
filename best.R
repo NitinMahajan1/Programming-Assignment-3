@@ -17,20 +17,20 @@ best <- function(state, outcome) {
   
 if (outcome=="heart attack"){
   sorted_outcome <- state_subset[order(as.numeric(state_subset[, 3]), as.character(state_subset[, 1])), ]
-  #return(sorted_outcome)
-  return(sorted_outcome[1,1])
+  return(sorted_outcome)
+  #return(sorted_outcome[1,1])
 }
 else
 if (outcome=="heart failure"){
   sorted_outcome <- state_subset[order(as.numeric(state_subset[, 4]), as.character(state_subset[, 1])), ]
-  #return(sorted_outcome)
-  return(sorted_outcome[1,1])
+  return(sorted_outcome)
+  #return(sorted_outcome[1,1])
 }
 else 
 if (outcome=="pneumonia"){
   sorted_outcome <- state_subset[order(as.numeric(state_subset[, 5]), as.character(state_subset[, 1])), ]
-  #return(sorted_outcome)
-  return(sorted_outcome[1,1])
+  return(sorted_outcome)
+  #return(sorted_outcome[1,1])
 }
   ## rate  
 } 
